@@ -19,20 +19,20 @@ app.config(['$locationProvider', function ($locationProvider) {
         requireBase: false
     });
 }]);
-app.factory('httpService', ['$resource','ENV',
-    function($resource,ENV){
-        return $resource(ENV.urlBase,{},{
-            query:{
-                method:"GET",
-                url:ENV.urlBase+"http://web.juhe.cn:8080/finance/exchange/rmbquot?key=62d687a8ce6c67b0a6fa316805807883"
-            }
-        })
-}]);
-app.controller('mainCtrl', ['$scope','httpService','ENV',
+
+app.factory('httpFactory', function($http){
+    return {
+        query : function(){
+            return $http({
+                url:'http://jwc.ecust.edu.cn/',
+                method:'GET'
+            })
+        }
+    }
+});
+app.controller('mainCtrl', ['$scope','$location','$http','httpFactory','ENV',
     function($scope,httpService,ENV){
-    	httpService.query().$promise.then(function (response){
-            if (response != null && response.resultcode == ENV.success) {
-                $scope.content=response.result;
-            };
+    	httpFactory.query().success(function (data){
+            $scope.content=data.result;
         });
     }])
