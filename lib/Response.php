@@ -71,4 +71,13 @@ class Response {
         $this->header('Location', $url);
         $this->send("<a href='{$url}'>{$url}</a>", $status);//默认应该在Location头就跳转，这里以防万一
     }
+
+    public function renderAndSend($viewPath, $data = null) {
+    	if (!$viewPath) throw new Exception('No view is specified.');
+	    ob_start();
+	    extract($data ?: array(), EXTR_SKIP);
+	    include ROOT . '/view/' . $viewPath;
+	    $renderResult = ob_get_clean();
+	    $this->send($renderResult);
+    }
 }

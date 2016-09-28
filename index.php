@@ -5,3 +5,5 @@ $request = Request::getInstance();
 $response = Response::getInstance();
 
 $path = $request->path();
+
+$response->renderAndSend('index.php');
