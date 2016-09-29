@@ -5,6 +5,9 @@ body {
     background-color: #ffffff;
     margin: 0;
 }
+ol {
+	padding-left:15px;
+}
 .img-brand {
 	width: 44px;
 	height: 44px;
@@ -12,4 +15,10 @@ body {
 }
 .nav-menu {
 	padding-right: 5px;
+}
+.main-content {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }

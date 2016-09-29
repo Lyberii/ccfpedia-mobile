@@ -5,14 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--极速模式-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>CCFpedia</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="../css/main.css" rel="stylesheet">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="../css/main.css" rel="stylesheet">
+    <!--Load Angular-->
+    <script type="text/javascript" src="../lib/angular-1.5.5/angular.js"></script>
+    <script type="text/javascript" src="../js/app.js"></script>
+    
 </head>
-<body>
+<body ng-app="ccfpediaApp" ng-controller="ccfpediaCtrl">
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -32,15 +36,19 @@
                         <li><a href="/register">注册</a></li>
                         <li class="divider"></li>
                         <li><input type="text" class="form-control" placeholder="搜索"></li>
-                    </ul>
+                    </ul> 
                 </div>
             </div>
-            <div class="panel panel-default">
+         </div>    
+    </nav>
+    <div class="container main-content">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 首页
             </div>
             <div class="panel-body">
-                <ul>
+                <p>{{title}}</p>
+                <ol>
                     <li><a href="">计算机科学与技术</a></li>
                     <li><a href="">计算机科学与技术</a></li>
                     <li><a href="">计算机科学与技术</a></li>
@@ -56,12 +64,43 @@
                     <li><a href="">计算机科学与技术</a></li>
                     <li><a href="">计算机科学与技术</a></li>
                     <li><a href="">计算机科学与技术</a></li>
-                </ul>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                    <li><a href="">计算机科学与技术</a></li>
+                </ol>
             </div>
-            <div class="panel-footer">面板脚注</div>
+            <div class="panel-footer">
+                
+            </div>
         </div>
-        </div>
-    </nav>
+    </div>
 </body>
 
 </html>
