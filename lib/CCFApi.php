@@ -39,6 +39,7 @@ class CCFApi {
 	}
 
 	public static function interpretToHTML($encoded) {
+		//去SEO文本
 		$result = preg_replace('/{{#seo.*}}/s', '', $encoded);
 		//解析大分类标题,ex:==XXXX==
 		preg_match_all('/==.*==/', $result, $matches);
@@ -57,6 +58,13 @@ class CCFApi {
 				$uri = $internalMatches[1];
 				$shown = $internalMatches[2];
 				$result = str_replace($code, "<a href='/{$uri}'>{$shown}</a>", $result);
+			}
+		}
+		//解析链接,ex:[[XXX]]
+		preg_match_all('/\[\[(.*?)\]\]/', $result, $matches);
+		if (isset($matches[1])) {
+			foreach ($matches[1] as $match) {
+				$result = str_replace("[[{$match}]]", "<a href='/{$match}'>{$match}</a>", $result);
 			}
 		}
 		return $result;
