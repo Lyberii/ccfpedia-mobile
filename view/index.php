@@ -44,57 +44,10 @@
     <div class="container main-content">
         <div class="panel panel-default">
             <div class="panel-heading">
-                首页
+                <?=$keyword?>
             </div>
             <div class="panel-body">
-                <p>{{title}}</p>
-                <ol>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                    <li><a href="">计算机科学与技术</a></li>
-                </ol>
+                <?=$htmlContent?>
             </div>
             <div class="panel-footer">
             </div>
