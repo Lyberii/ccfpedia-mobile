@@ -31,7 +31,9 @@ class CCFApi{
         $params['titles'] = $title;
         $params['rvprop'] = 'content';
         $params['format'] = 'json';
-        $page = array_values(json_decode(HttpClient::get($url.http_build_query($params)),true)['query']['pages']);
+	    $result = json_decode(HttpClient::get($url.http_build_query($params)),true);
+	    if (!isset($result['query'])) return false;
+        $page = array_values($result['query']['pages']);
         if(isset($page[0]['revisions'])) return $page[0]['revisions'][0]['*'];
         else return false;
     }
