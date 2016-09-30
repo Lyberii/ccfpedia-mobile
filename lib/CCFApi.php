@@ -46,7 +46,7 @@ class CCFApi {
 			foreach ($matches[0] as $code) {
 				preg_match('/==(.*)==/', $code, $internalMatches);
 				$title = $internalMatches[1];
-				$result = str_replace($code, "<h2>{$title}</h2>", $result);
+				$result = str_replace($code, "<h4>{$title}</h4>", $result);
 			}
 		}
 		//解析小分类标题,ex:[[:分类:XXXX|XXXX]]

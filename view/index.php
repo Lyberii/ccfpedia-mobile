@@ -11,12 +11,8 @@
     <link href="../css/main.css" rel="stylesheet">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--Load Angular-->
-    <script type="text/javascript" src="../lib/angular-1.5.5/angular.js"></script>
-    <script type="text/javascript" src="../js/app.js"></script>
-    
 </head>
-<body ng-app="ccfpediaApp" ng-controller="ccfpediaCtrl">
+<body>
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
