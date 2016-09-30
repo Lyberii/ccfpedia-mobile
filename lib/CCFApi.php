@@ -35,4 +35,28 @@ class CCFApi{
         if(isset($page[0]['revisions'])) return $page[0]['revisions'][0]['*'];
         else return false;
     }
+
+    public static function interpretToHTML($encoded) {
+    	$result = preg_replace('/{{#seo.*}}/s', '', $encoded);
+	    //解析大分类标题,ex:==XXXX==
+	    preg_match_all('/==.*==/', $result, $matches);
+	    if (isset($matches[0])) {
+	    	foreach ($matches[0] as $code) {
+	    		preg_match('/==(.*)==/', $code, $internalMatches);
+			    $title = $internalMatches[1];
+			    $result = str_replace($code, "<h2>{$title}</h2>", $result);
+		    }
+	    }
+	    //解析小分类标题,ex:[[:分类:XXXX|XXXX]]
+    	preg_match_all('/\[\[:分类:.*?\]\]/', $result, $matches);
+	    if (isset($matches[0])) {
+		    foreach ($matches[0] as $code) {
+			    preg_match('/\[\[:(.*)\|(.*)\]\]/', $code, $internalMatches);
+			    $uri = $internalMatches[1];
+			    $shown = $internalMatches[2];
+			    $result = str_replace($code, "<a href='/{$uri}'>{$shown}</a>", $result);
+		    }
+	    }
+	    return $result;
+    }
 }

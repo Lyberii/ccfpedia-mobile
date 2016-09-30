@@ -7,7 +7,8 @@ $response = Response::getInstance();
 
 $path = $request->path();
 
-CCFApi::search('计',0);
-exit();
-
-$response->renderAndSend('index.php');
+if ($path[0] == 'search') {
+	include 'search.php';
+} else {
+	include 'query.php';
+}
