@@ -38,7 +38,7 @@
     <div class="container main-content">
         <div class="panel panel-default panel-content">
             <div class="panel-heading">
-                <?=$keyword?>
+                <h2><?=$keyword?></h2>
             </div>
             <div class="panel-body">
                 <?=$htmlContent?>
