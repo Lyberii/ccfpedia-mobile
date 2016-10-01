@@ -27,15 +27,32 @@
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
                     <ul class="nav navbar-nav nav-menu">
-                        <li class="active"><a href="/login">登录</a></li>
-                        <li><a href="/register">注册</a></li>
                     </ul>
                 </div>
             </div>
          </div>
     </nav>
     <div class="container main-content">
-
+        <form class="inline-form" role="form" action="">
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    Go
+                </button>
+            </span>
+        </div>
+        </form>
+        <br/>
+        <div class="panel panel-default panel-content">
+            <div class="panel-heading">
+                <p></p>
+            </div>
+            <div class="panel-body">
+            </div>
+            <div class="panel-footer">
+            </div>
+        </div>
     </div>
 </body>
 

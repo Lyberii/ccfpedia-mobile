@@ -28,8 +28,6 @@
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
                     <ul class="nav navbar-nav nav-menu">
-                        <li class="active"><a href="/login">登录</a></li>
-                        <li><a href="/register">注册</a></li>
                         <li class="divider"></li>
                         <li><a href="/search">搜索</a></li>
                     </ul>
@@ -38,7 +36,7 @@
          </div>    
     </nav>
     <div class="container main-content">
-        <div class="panel panel-default">
+        <div class="panel panel-default panel-content">
             <div class="panel-heading">
                 <?=$keyword?>
             </div>
