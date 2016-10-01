@@ -21,4 +21,6 @@ ol {
 	padding-right: 8px;
 	padding-top: 0px;
 	padding-bottom: 0px;
+	word-wrap: break-word;
+	word-break: normal;
 }

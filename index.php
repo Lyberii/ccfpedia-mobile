@@ -6,7 +6,6 @@ $request = Request::getInstance();
 $response = Response::getInstance();
 
 if ($request->uri() == '/') $response->redirect('/首页');
-
 $path = $request->path();
 
 if ($path[0] == 'search') {

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head lang="en">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
                         data-target="#example-nav-collapse">
                     <span class="sr-only">切换导航</span>
                     <span class="icon-bar"></span>
@@ -30,24 +29,13 @@
                     <ul class="nav navbar-nav nav-menu">
                         <li class="active"><a href="/login">登录</a></li>
                         <li><a href="/register">注册</a></li>
-                        <li class="divider"></li>
-                        <li><a href="/search">搜索</a></li>
                     </ul>
                 </div>
             </div>
-         </div>    
+         </div>
     </nav>
     <div class="container main-content">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <?=$keyword?>
-            </div>
-            <div class="panel-body">
-                <?=$htmlContent?>
-            </div>
-            <div class="panel-footer">
-            </div>
-        </div>
+
     </div>
 </body>
 
