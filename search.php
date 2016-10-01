@@ -4,7 +4,8 @@
  * @var Request     $request
  * @var Response    $response
  */
-$keyword = urldecode($path[1]);
+$keyword = urldecode(isset($path[1]) ? $path[1] : '');
+if (!$keyword) $response->renderAndSend('search.php');
 $queryResult = CCFApi::query($keyword);
 if ($queryResult) $response->redirect("/{$keyword}");
 $offset = $request->offset ?: 0;
