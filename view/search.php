@@ -33,27 +33,47 @@
          </div>
     </nav>
     <div class="container main-content">
-        <form class="inline-form" role="form" action="">
-        <div class="input-group">
-            <input type="text" class="form-control">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                    Go
-                </button>
-            </span>
-        </div>
-        </form>
-        <br/>
-        <div class="panel panel-default panel-content">
+        <h4>本wiki上有/无名为“XXXX”的页面</h4>
+        <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
             <div class="panel-heading">
-                <p></p>
+                <h5>页面标题匹配</h5>
             </div>
             <div class="panel-body">
+                <h5>内容</h5>
             </div>
             <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-6" style="text-align: center">
+                        <a href="" style="margin: 0 auto;"><h4>上一页</h4></a>
+                    </div>
+                    <div class="col-xs-6" style="text-align:center">
+                        <a href=""><h4>下一页</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
+            <div class="panel-heading">
+                <h5>页面内容匹配</h5>
+            </div>
+            <div class="panel-body">
+                <h5>内容</h5>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-xs-6" style="text-align: center">
+                        <a href=""><h4>上一页</h4></a>
+                    </div>
+                    <div class="col-xs-6" style="text-align: center">
+                        <a href=""><h4>下一页</h4></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
+<script>
 
+</script>
 </html>

@@ -11,6 +11,13 @@
     <link href="../css/main.css" rel="stylesheet">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function updateHref(){
+            var value = document.getElementById('search_value').value;
+            var a = document.getElementById('search_a');
+            a.href.value= a.href.value+'/'+value;
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -28,14 +35,23 @@
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
                     <ul class="nav navbar-nav nav-menu">
-                        <li class="divider"></li>
-                        <li><a href="/search">搜索</a></li>
                     </ul>
                 </div>
             </div>
          </div>    
     </nav>
     <div class="container main-content">
+        <form class="inline-form" id="search_form" role="form">
+            <div class="input-group">
+                <input type="text" id="search_value" class="form-control" placeholder="请输入搜索关键词">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" id="search_a" href="/search" onclick="updateHref()">
+                        Go
+                    </a>
+                </span>
+            </div>
+        </form>
+        <br/>
         <div class="panel panel-default panel-content">
             <div class="panel-heading">
                 <h2><?=$keyword?></h2>
