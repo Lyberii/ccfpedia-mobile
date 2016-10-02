@@ -38,6 +38,25 @@ class CCFApi {
 		else return false;
 	}
 
+	public static function sizeInterpret($size) {
+		if ($size > 1048576) {
+			$unit = 'MB';
+		} elseif ($size > 1024) {
+			$unit = 'KB';
+		} else {
+			$unit = '字节';
+		}
+		switch ($unit) {
+			case 'MB':
+				$size /= 1048576;
+				break;
+			case 'KB':
+				$size /= 1024;
+				break;
+		}
+		return $size . $unit;
+	}
+
 	public static function interpretToHTML($encoded) {
 		//去SEO文本
 		$result = preg_replace('/{{#seo.*}}/s', '', $encoded);

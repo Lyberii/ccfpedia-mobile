@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/" style="width:80px;padding: 0">
-                    <img class="img-brand" alt="Brand" src="../images/ccflogo.png">
+                    <img class="img-brand" alt="Brand" src="../../images/ccflogo.png">
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
                     <ul class="nav navbar-nav nav-menu">
@@ -33,44 +33,47 @@
          </div>
     </nav>
     <div class="container main-content">
-        <h4>本wiki上有/无名为“XXXX”的页面</h4>
-        <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
-            <div class="panel-heading">
-                <h5>页面标题匹配</h5>
-            </div>
-            <div class="panel-body">
-                <h5>内容</h5>
-            </div>
-            <div class="panel-footer">
-                <div class="row">
-                    <div class="col-xs-6" style="text-align: center">
-                        <a href="" style="margin: 0 auto;"><h4>上一页</h4></a>
-                    </div>
-                    <div class="col-xs-6" style="text-align:center">
-                        <a href=""><h4>下一页</h4></a>
+        <? if (isset($searchResult) && $searchResult) { ?>
+            <h4>本wiki上有名为"<?=$keyword?>"的页面</h4>
+            <div class="panel panel-default panel-content">
+                <div class="panel-heading">
+                    <h5>按页面标题匹配</h5>
+                </div>
+                <div class="panel-body">
+                    <h5>内容</h5>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-6" style="text-align: center">
+                            <a href="" style="margin: 0 auto;"><h4>上一页</h4></a>
+                        </div>
+                        <div class="col-xs-6" style="text-align:center">
+                            <a href=""><h4>下一页</h4></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
-            <div class="panel-heading">
-                <h5>页面内容匹配</h5>
-            </div>
-            <div class="panel-body">
-                <h5>内容</h5>
-            </div>
-            <div class="panel-footer">
-                <div class="row">
-                    <div class="col-xs-6" style="text-align: center">
-                        <a href=""><h4>上一页</h4></a>
-                    </div>
-                    <div class="col-xs-6" style="text-align: center">
-                        <a href=""><h4>下一页</h4></a>
+            <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
+                <div class="panel-heading">
+                    <h5>按页面内容匹配</h5>
+                </div>
+                <div class="panel-body">
+                    <h5>内容</h5>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-6" style="text-align: center">
+                            <a href=""><h4>上一页</h4></a>
+                        </div>
+                        <div class="col-xs-6" style="text-align: center">
+                            <a href=""><h4>下一页</h4></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <? } else { ?>
+            <h4>本wiki上无名为"<?=$keyword?>"的页面</h4>
+        <? } ?>
     </div>
 </body>
 <script>

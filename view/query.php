@@ -12,10 +12,11 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        function updateHref(){
-            var value = document.getElementById('search_value').value;
-            var a = document.getElementById('search_a');
-            a.href.value= a.href.value+'/'+value;
+        function goSearch(){
+            var searchText = document.getElementById('search_value').value;
+            var searchForm = document.getElementById('search_form');
+            searchForm.action = '/search/' + searchText + '/';
+            searchForm.submit();
         }
     </script>
 </head>
@@ -41,11 +42,11 @@
          </div>    
     </nav>
     <div class="container main-content">
-        <form class="inline-form" id="search_form" role="form">
+        <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post">
             <div class="input-group">
                 <input type="text" id="search_value" class="form-control" placeholder="请输入搜索关键词">
                 <span class="input-group-btn">
-                    <a class="btn btn-default" id="search_a" href="/search" onclick="updateHref()">
+                    <a class="btn btn-default" id="search_btn" onclick="goSearch()">
                         Go
                     </a>
                 </span>
