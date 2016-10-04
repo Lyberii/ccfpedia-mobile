@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,26 @@
     <link href="../css/main.css" rel="stylesheet">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .navbar-brand {
+            width: 80px;
+            padding: 0;
+        }
+        .img-brand {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        li {
+            list-style-type: none;
+        }
+        .search-results {
+            padding-left: 0px;
+        }
+        .search-results a{
+
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -22,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/" style="width:80px;padding: 0">
+                <a class="navbar-brand" href="/">
                     <img class="img-brand" alt="Brand" src="../../images/ccflogo.png">
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
@@ -34,13 +55,35 @@
     </nav>
     <div class="container main-content">
         <? if (isset($searchResult) && $searchResult) { ?>
-            <h4>本wiki上有名为"<?=$keyword?>"的页面</h4>
+            <h4>本wiki上有名为"<?=$keyword?>"的相关页面</h4>
             <div class="panel panel-default panel-content">
                 <div class="panel-heading">
                     <h5>按页面标题匹配</h5>
                 </div>
                 <div class="panel-body">
-                    <h5>内容</h5>
+                    <ul class="search-results">
+                        <li>
+                            <div class="search-result-heading">
+                                <a href="/" title="电子书">电子书</a>
+                            </div>
+                            <div class="search-results"></div>
+                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
+                        </li>
+                        <li>
+                            <div class="search-result-heading">
+                                <a href="/" title="电子书">电子书</a>
+                            </div>
+                            <div class="search-results"></div>
+                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
+                        </li>
+                        <li>
+                            <div class="search-result-heading">
+                                <a href="/" title="电子书">电子书</a>
+                            </div>
+                            <div class="search-results"></div>
+                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
@@ -58,7 +101,29 @@
                     <h5>按页面内容匹配</h5>
                 </div>
                 <div class="panel-body">
-                    <h5>内容</h5>
+                    <ul class="search-results">
+                        <li>
+                            <div class="search-result-heading">
+                                <a href="/" title="电子书">电子书</a>
+                            </div>
+                            <div class="search-results"></div>
+                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
+                        </li>
+                        <li>
+                            <div class="search-result-heading">
+                                <a href="/" title="电子书">电子书</a>
+                            </div>
+                            <div class="search-results"></div>
+                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
+                        </li>
+                        <li>
+                            <div class="search-result-heading">
+                                <a href="/" title="电子书">电子书</a>
+                            </div>
+                            <div class="search-results"></div>
+                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
@@ -72,7 +137,7 @@
                 </div>
             </div>
         <? } else { ?>
-            <h4>本wiki上无名为"<?=$keyword?>"的页面</h4>
+            <h4>本wiki上无名为"<?=$keyword?>"的相关页面</h4>
         <? } ?>
     </div>
 </body>
