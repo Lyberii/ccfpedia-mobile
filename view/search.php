@@ -57,7 +57,7 @@
          </div>
     </nav>
     <div class="container main-content">
-        <? if (isset($searchResult) && $searchResult) { ?>
+        <? if ( (isset($searchResult['title']) && $searchResult['title']) || (isset($searchResult['text']) && $searchResult['text'])) { ?>
             <h4>本wiki上有名为"<?=$keyword?>"的相关页面</h4>
             <div class="panel panel-default panel-content">
                 <div class="panel-heading">
