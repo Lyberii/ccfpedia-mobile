@@ -95,7 +95,7 @@ class CCFApi {
 		while(true) {
 			$wikitableStartPos = strpos($result, '{|');
 			$wikitableEndPos = strpos($result, '|}');
-			$wikitable = substr($result, $wikitableStartPos, $wikitableEndPos);
+			$wikitable = $wikitableStartPos !== false && $wikitableEndPos !== false ? substr($result, $wikitableStartPos, $wikitableEndPos+2) : false;
 			if ($wikitable) {
 				$tableDesctiption = substr($wikitable, strpos($wikitable, '{|') + 2, strpos($wikitable, '|-') - 2);
 				$htmlTable = "<table {$tableDesctiption}>";
