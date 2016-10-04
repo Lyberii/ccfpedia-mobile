@@ -7,8 +7,8 @@
  */
 require_once 'HttpClient.php';
 class CCFApi {
+	const API_URL = "http://term.ccf.org.cn/api.php?";
 	public static function search($word, $offset = 0, $limit = 15) {
-		$url = 'http://term.ccf.org.cn/api.php?';
 		$params = array();
 		$params['action'] = 'query';
 		$params['list'] = 'search';
@@ -17,21 +17,25 @@ class CCFApi {
 		$params['srlimit'] = $limit;
 		$params['utf8'] = '';
 		$params['format'] = 'json';
-		$srtext = json_decode(HttpClient::get($url . http_build_query($params)), true)['query']['search'];
+		$textSearchResult = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
+		$srtext = isset($textSearchResult['query']['search']) ? $textSearchResult['query']['search'] : [];
 		$params['srwhat'] = 'text';
-		$srtitle = json_decode(HttpClient::get($url . http_build_query($params)), true)['query']['search'];
-		return array('title' => $srtitle, 'text' => $srtext);
+		$titleSearchResult = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
+		$srtitle = isset($titleSearchResult['query']['search']) ? $titleSearchResult['query']['search'] : [];
+		return [
+			'title' => $srtitle,
+			'text' => $srtext,
+		];
 	}
 
 	public static function query($title) {
-		$url = 'http://term.ccf.org.cn/api.php?';
 		$params = array();
 		$params['action'] = 'query';
 		$params['prop'] = 'revisions';
 		$params['titles'] = $title;
 		$params['rvprop'] = 'content';
 		$params['format'] = 'json';
-		$result = json_decode(HttpClient::get($url . http_build_query($params)), true);
+		$result = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
 		if (!isset($result['query'])) return false;
 		$page = array_values($result['query']['pages']);
 		if (isset($page[0]['revisions'])) return $page[0]['revisions'][0]['*'];
@@ -54,7 +58,11 @@ class CCFApi {
 				$size /= 1024;
 				break;
 		}
-		return $size . $unit;
+		return (int)$size . $unit;
+	}
+
+	public static function timeInterpret($timestamp) {
+		return date('Y年m月d日 H:i', strtotime($timestamp));
 	}
 
 	public static function interpretToHTML($encoded) {

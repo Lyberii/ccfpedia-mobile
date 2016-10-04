@@ -25,10 +25,13 @@
             list-style-type: none;
         }
         .search-results {
-            padding-left: 0px;
+            padding-left: 0;
         }
-        .search-results a{
-
+        .search-results li{
+            margin-bottom: 15px;
+        }
+        .search-result-data {
+            color: green;
         }
     </style>
 </head>
@@ -62,38 +65,16 @@
                 </div>
                 <div class="panel-body">
                     <ul class="search-results">
-                        <li>
-                            <div class="search-result-heading">
-                                <a href="/" title="电子书">电子书</a>
-                            </div>
-                            <div class="search-results"></div>
-                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
-                        </li>
-                        <li>
-                            <div class="search-result-heading">
-                                <a href="/" title="电子书">电子书</a>
-                            </div>
-                            <div class="search-results"></div>
-                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
-                        </li>
-                        <li>
-                            <div class="search-result-heading">
-                                <a href="/" title="电子书">电子书</a>
-                            </div>
-                            <div class="search-results"></div>
-                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
-                        </li>
+                        <? foreach ($searchResult['title'] as $item) { ?>
+                            <li>
+                                <div class="search-result-heading">
+                                    <a href="/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
+                                </div>
+                                <div class="search-results"><?=$item['snippet']?></div>
+                                <div class="search-result-data"><?=CCFApi::sizeInterpret($item['size'])?>（<?=$item['wordcount']?>个字）- <?=CCFApi::timeInterpret($item['timestamp'])?></div>
+                            </li>
+                        <? } ?>
                     </ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-xs-6" style="text-align: center">
-                            <a href="" style="margin: 0 auto;"><h4>上一页</h4></a>
-                        </div>
-                        <div class="col-xs-6" style="text-align:center">
-                            <a href=""><h4>下一页</h4></a>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
@@ -102,36 +83,24 @@
                 </div>
                 <div class="panel-body">
                     <ul class="search-results">
-                        <li>
-                            <div class="search-result-heading">
-                                <a href="/" title="电子书">电子书</a>
-                            </div>
-                            <div class="search-results"></div>
-                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
-                        </li>
-                        <li>
-                            <div class="search-result-heading">
-                                <a href="/" title="电子书">电子书</a>
-                            </div>
-                            <div class="search-results"></div>
-                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
-                        </li>
-                        <li>
-                            <div class="search-result-heading">
-                                <a href="/" title="电子书">电子书</a>
-                            </div>
-                            <div class="search-results"></div>
-                            <div class="search-result-data">12KB（247个字）-2015年5月15日 23:00</div>
-                        </li>
+                        <? foreach ($searchResult['text'] as $item) { ?>
+                            <li>
+                                <div class="search-result-heading">
+                                    <a href="/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
+                                </div>
+                                <div class="search-results"><?=$item['snippet']?></div>
+                                <div class="search-result-data"><?=CCFApi::sizeInterpret($item['size'])?>（<?=$item['wordcount']?>个字）- <?=CCFApi::timeInterpret($item['timestamp'])?></div>
+                            </li>
+                        <? } ?>
                     </ul>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6" style="text-align: center">
-                            <a href=""><h4>上一页</h4></a>
+                            <a href="/search/<?=$keyword?>?offset=<?=$offset - $limit > 0 ?: 0?>&limit=<?=$limit?>"><h4>上一页</h4></a>
                         </div>
                         <div class="col-xs-6" style="text-align: center">
-                            <a href=""><h4>下一页</h4></a>
+                            <a href="/search/<?=$keyword?>?offset=<?=$offset + $limit?>&limit=<?=$limit?>"><h4>下一页</h4></a>
                         </div>
                     </div>
                 </div>
