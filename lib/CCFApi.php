@@ -92,23 +92,17 @@ class CCFApi {
 		//解析链接,ex:|XXX|http[s]://XXXXXXX
 		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|<td><a href="$2">$1</a>', $result);
 		//解析wikitable
-		while(true) {
-			$wikitableStartPos = strpos($result, '{|');
-			$wikitableEndPos = strpos($result, '|}');
-			$wikitable = $wikitableStartPos !== false && $wikitableEndPos !== false ? substr($result, $wikitableStartPos, $wikitableEndPos+2) : false;
-			if ($wikitable) {
-				$tableDesctiption = substr($wikitable, strpos($wikitable, '{|') + 2, strpos($wikitable, '|-') - 2);
-				$htmlTable = "<table {$tableDesctiption}>";
-				$table = substr($wikitable, strpos($wikitable, '|-') + 2);
-				$table = preg_replace('/\|\|/', '</td><td>', $table);
-				$table = preg_replace('/\|\-/', '</td></tr>', $table);
-				$table = preg_replace('/\|}/', '</tr></table>', $table);
-				$table = preg_replace('/\|/', '<tr>', $table);
-				$htmlTable .= $table;
-				$result = str_replace($wikitable, $htmlTable, $result);
-			} else {
-				break;
-			}
+		preg_match_all('/{\|.*?\|}/s', $result, $matches);
+		foreach ($matches[0] as $wikitable) {
+			$tableDesctiption = substr($wikitable, strpos($wikitable, '{|') + 2, strpos($wikitable, '|-') - 2);
+			$htmlTable = "<table {$tableDesctiption}>";
+			$table = substr($wikitable, strpos($wikitable, '|-') + 2);
+			$table = preg_replace('/\|\|/', '</td><td>', $table);
+			$table = preg_replace('/\|\-/', '</td></tr>', $table);
+			$table = preg_replace('/\|}/', '</tr></table>', $table);
+			$table = preg_replace('/\|/', '<tr>', $table);
+			$htmlTable .= $table;
+			$result = str_replace($wikitable, $htmlTable, $result);
 		}
 		return $result;
 	}
