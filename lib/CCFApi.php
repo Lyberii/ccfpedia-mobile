@@ -90,7 +90,7 @@ class CCFApi {
 		//解析链接,ex:[[XXX]]
 		$result = preg_replace('/\[\[(.*?)\]\]/', '<a href=\'/$1\'>$1</a>', $result);
 		//解析链接,ex:|XXX|http[s]://XXXXXXX
-		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|<td><a href="$2">$1</a>', $result);
+		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|<a href="$2">$1</a>', $result);
 		//解析wikitable
 		preg_match_all('/{\|.*?\|}/s', $result, $matches);
 		foreach ($matches[0] as $wikitable) {
@@ -100,7 +100,7 @@ class CCFApi {
 			$table = preg_replace('/\|\|/', '</td><td>', $table);
 			$table = preg_replace('/\|\-/', '</td></tr>', $table);
 			$table = preg_replace('/\|}/', '</tr></table>', $table);
-			$table = preg_replace('/\|/', '<tr>', $table);
+			$table = preg_replace('/\|/', '<tr><td>', $table);
 			$htmlTable .= $table;
 			$result = str_replace($wikitable, $htmlTable, $result);
 		}
