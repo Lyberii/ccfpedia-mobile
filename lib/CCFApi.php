@@ -91,7 +91,6 @@ class CCFApi {
 		$result = preg_replace('/\[\[(.*?)\]\]/', '<a href=\'/mobile/$1\'>$1</a>', $result);
 		//解析链接,ex:|XXX|http[s]://XXXXXXX
 		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|$1||<a href="$2">$2</a>', $result);
-		//var_dump($result);
 		//解析wikitable
 		preg_match_all('/{\|.*?\|}/s', $result, $matches);
 		foreach ($matches[0] as $wikitable) {
