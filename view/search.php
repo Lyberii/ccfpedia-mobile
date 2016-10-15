@@ -77,7 +77,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="panel panel-default panel-content" <?php if (false) {print "hidden='hidden'";}?>>
+            <div class="panel panel-default panel-content">
                 <div class="panel-heading">
                     <h5>按页面内容匹配</h5>
                 </div>
