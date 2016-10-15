@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/" style="width:80px;padding: 0">
+                <a class="navbar-brand" href="/mobile/首页" style="width:80px;padding: 0">
                     <img class="img-brand" alt="Brand" src="/mobile/images/ccflogo.png">
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">

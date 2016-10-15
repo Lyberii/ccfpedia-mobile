@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/mobile/首页">
                     <img class="img-brand" alt="Brand" src="/mobile/images/ccflogo.png">
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
@@ -68,7 +68,7 @@
                         <? foreach ($searchResult['title'] as $item) { ?>
                             <li>
                                 <div class="search-result-heading">
-                                    <a href="/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
+                                    <a href="/mobile/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
                                 </div>
                                 <div class="search-results"><?=$item['snippet']?></div>
                                 <div class="search-result-data"><?=CCFApi::sizeInterpret($item['size'])?>（<?=$item['wordcount']?>个字）- <?=CCFApi::timeInterpret($item['timestamp'])?></div>
@@ -86,7 +86,7 @@
                         <? foreach ($searchResult['text'] as $item) { ?>
                             <li>
                                 <div class="search-result-heading">
-                                    <a href="/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
+                                    <a href="/mobile/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
                                 </div>
                                 <div class="search-results"><?=$item['snippet']?></div>
                                 <div class="search-result-data"><?=CCFApi::sizeInterpret($item['size'])?>（<?=$item['wordcount']?>个字）- <?=CCFApi::timeInterpret($item['timestamp'])?></div>
@@ -97,10 +97,10 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6" style="text-align: center">
-                            <a href="/search/<?=$keyword?>?offset=<?=$offset - $limit > 0 ?: 0?>&limit=<?=$limit?>"><h4>上一页</h4></a>
+                            <a href="/mobile/search/<?=$keyword?>?offset=<?=$offset - $limit > 0 ?: 0?>&limit=<?=$limit?>"><h4>上一页</h4></a>
                         </div>
                         <div class="col-xs-6" style="text-align: center">
-                            <a href="/search/<?=$keyword?>?offset=<?=$offset + $limit?>&limit=<?=$limit?>"><h4>下一页</h4></a>
+                            <a href="/mobile/search/<?=$keyword?>?offset=<?=$offset + $limit?>&limit=<?=$limit?>"><h4>下一页</h4></a>
                         </div>
                     </div>
                 </div>
