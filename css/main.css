@@ -29,3 +29,10 @@ body {
 	word-wrap: break-word;
 	word-break: break-all;
 }
+.panel-body {
+	font-size: large;
+}
+.wikitable{
+	width: 100%;
+	text-align: left;
+}

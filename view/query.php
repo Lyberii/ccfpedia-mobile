@@ -9,8 +9,9 @@
     <title>CCFpedia</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="/mobile/css/main.css" rel="stylesheet">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function goSearch(){
             var searchText = document.getElementById('search_value').value;
@@ -18,13 +19,30 @@
             searchForm.action = '/mobile/search/' + searchText + '/';
             searchForm.submit();
         }
+        $(document).ready(function(){
+            $('.wikitable').css('width','100%');
+            $('.wikitable').addClass('table-bordered');
+            var tables = $('.wikitable');
+            for(var i=0;i<tables.length;i++){
+                var tbody = $("<tbody></tbody>");
+                var tds = $(tables[i]).find('td');
+                for(var j=0;j<tds.length-1;j=j+2){
+                    var tr = $("<tr></tr>");
+                    tr.append(tds[j]);
+                    tr.append(tds[j+1]);
+                    tbody.append(tr);
+                }
+                $($(tables[i]).children()).remove();
+                $(tables[i]).append(tbody);
+            }
+        })
     </script>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
                         data-target="#example-nav-collapse">
                     <span class="sr-only">切换导航</span>
                     <span class="icon-bar"></span>
@@ -32,7 +50,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/" style="width:80px;padding: 0">
-                    <img class="img-brand" alt="Brand" src="./images/ccflogo.png">
+                    <img class="img-brand" alt="Brand" src="/mobile/images/ccflogo.png">
                 </a>
                 <div class="collapse navbar-collapse" id="example-nav-collapse">
                     <ul class="nav navbar-nav nav-menu">
