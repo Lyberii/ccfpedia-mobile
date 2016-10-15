@@ -73,9 +73,9 @@
         <br/>
         <div class="panel panel-default panel-content">
             <div class="panel-heading">
-                <h2><?=$keyword?></h2>
+                <h3><?=$keyword?></h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="font-size: 16px;">
                 <?=$htmlContent?>
             </div>
             <div class="panel-footer">

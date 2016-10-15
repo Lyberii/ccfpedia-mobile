@@ -26,6 +26,7 @@
         }
         .search-results {
             padding-left: 0;
+            font-size: 16px;
         }
         .search-results li{
             margin-bottom: 15px;
@@ -61,7 +62,7 @@
             <h4>本wiki上有名为"<?=$keyword?>"的相关页面</h4>
             <div class="panel panel-default panel-content">
                 <div class="panel-heading">
-                    <h5>按页面标题匹配</h5>
+                    <h4>按页面标题匹配</h4>
                 </div>
                 <div class="panel-body">
                     <ul class="search-results">
@@ -79,7 +80,7 @@
             </div>
             <div class="panel panel-default panel-content">
                 <div class="panel-heading">
-                    <h5>按页面内容匹配</h5>
+                    <h4>按页面内容匹配</h4>
                 </div>
                 <div class="panel-body">
                     <ul class="search-results">

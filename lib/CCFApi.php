@@ -90,17 +90,18 @@ class CCFApi {
 		//解析链接,ex:[[XXX]]
 		$result = preg_replace('/\[\[(.*?)\]\]/', '<a href=\'/mobile/$1\'>$1</a>', $result);
 		//解析链接,ex:|XXX|http[s]://XXXXXXX
-		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|<a href="$2">$1</a>', $result);
+		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|$1||<a href="$2">$2</a>', $result);
+		//var_dump($result);
 		//解析wikitable
 		preg_match_all('/{\|.*?\|}/s', $result, $matches);
 		foreach ($matches[0] as $wikitable) {
 			$tableDesctiption = substr($wikitable, strpos($wikitable, '{|') + 2, strpos($wikitable, '|-') - 2);
 			$htmlTable = "<table {$tableDesctiption}>";
 			$table = substr($wikitable, strpos($wikitable, '|-') + 2);
-			$table = preg_replace('/\|\|/', '</td><td>', $table);
-			$table = preg_replace('/\|\-/', '</td></tr>', $table);
+			$table = preg_replace('/\|\|/', '</td><td><h5>', $table);
+			$table = preg_replace('/\|\-/', '</h5></td></tr>', $table);
 			$table = preg_replace('/\|}/', '</tr></table>', $table);
-			$table = preg_replace('/\|/', '<tr><td>', $table);
+			$table = preg_replace('/\|/', '<tr><td><h5>', $table);
 			$htmlTable .= $table;
 			$result = str_replace($wikitable, $htmlTable, $result);
 		}

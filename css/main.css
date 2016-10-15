@@ -29,8 +29,8 @@ body {
 	word-wrap: break-word;
 	word-break: break-all;
 }
-.panel-body {
-	font-size: large;
+.panel-body{
+	font-size: 18px;
 }
 .wikitable{
 	width: 100%;
