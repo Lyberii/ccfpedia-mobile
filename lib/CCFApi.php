@@ -84,11 +84,11 @@ class CCFApi {
 				preg_match('/\[\[:(.*)\|(.*)\]\]/', $code, $internalMatches);
 				$uri = $internalMatches[1];
 				$shown = $internalMatches[2];
-				$result = str_replace($code, "<a href='/{$uri}'>{$shown}</a>", $result);
+				$result = str_replace($code, "<a href='/mobile/{$uri}'>{$shown}</a>", $result);
 			}
 		}
 		//解析链接,ex:[[XXX]]
-		$result = preg_replace('/\[\[(.*?)\]\]/', '<a href=\'/$1\'>$1</a>', $result);
+		$result = preg_replace('/\[\[(.*?)\]\]/', '<a href=\'/mobile/$1\'>$1</a>', $result);
 		//解析链接,ex:|XXX|http[s]://XXXXXXX
 		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|<a href="$2">$1</a>', $result);
 		//解析wikitable
