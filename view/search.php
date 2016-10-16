@@ -35,6 +35,14 @@
             color: green;
         }
     </style>
+    <script type="text/javascript">
+        function goSearch(){
+            var searchText = document.getElementById('search_value').value;
+            var searchForm = document.getElementById('search_form');
+            searchForm.action = '/mobile/search/' + searchText + '/';
+            searchForm.submit();
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -58,6 +66,17 @@
          </div>
     </nav>
     <div class="container main-content">
+        <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post">
+            <div class="input-group">
+                <input type="text" id="search_value" class="form-control" placeholder="请输入搜索关键词">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" id="search_btn" onclick="goSearch()">
+                        Go
+                    </a>
+                </span>
+            </div>
+        </form>
+        <br/>
         <? if ( (isset($searchResult['title']) && $searchResult['title']) || (isset($searchResult['text']) && $searchResult['text'])) { ?>
             <h4>本wiki上有名为"<?=$keyword?>"的相关页面</h4>
             <div class="panel panel-default panel-content">
