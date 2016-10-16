@@ -90,7 +90,7 @@ class CCFApi {
 		//解析链接,ex:[[XXX]]
 		$result = preg_replace('/\[\[(.*?)\]\]/', '<a href=\'/mobile/$1\'>$1</a>', $result);
 		//解析链接,ex:|XXX|http[s]://XXXXXXX
-        $result = preg_replace('/(http[s]?.*)<br.*/', '$1', $result); //对zhishi.me有多个链接的直接取第一个
+        $result = preg_replace('/(http[s]?.*?)<br.*/', '$1', $result); //对zhishi.me有多个链接的直接取第一个
 		$result = preg_replace('/\|(.*)\|\|(http[s]?.*)/', '|$1||<a href="$2">$2</a>', $result);
 		//解析wikitable
 		preg_match_all('/{\|.*?\|}/s', $result, $matches);
