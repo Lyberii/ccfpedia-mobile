@@ -99,7 +99,7 @@
                 </div>
                 <div class="panel-body">
                     <ul class="search-results">
-                        <? foreach ($searchResult['text'] as $item) { ?>
+                        <? foreach ($searchResult['title'] as $item) { ?>
                             <li>
                                 <div class="search-result-heading">
                                     <a href="/mobile/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="panel-body">
                     <ul class="search-results">
-                        <? foreach ($searchResult['title'] as $item) { ?>
+                        <? foreach ($searchResult['text'] as $item) { ?>
                             <li>
                                 <div class="search-result-heading">
                                     <a href="/mobile/<?=$item['title']?>" title="<?=$item['title']?>"><?=$item['title']?></a>
