@@ -40,17 +40,19 @@
         }
     </style>
     <script type="text/javascript">
-        function goSearch(){
-            var searchText = document.getElementById('search_value').value;
-            var searchForm = document.getElementById('search_form');
-            searchForm.action = '/mobile/search/' + searchText + '/';
-            searchForm.submit();
-        }
-    </script>
-    <script type="text/javascript">
         var app = angular.module('app', ["ngTouch", "angucomplete"]);
-        app.controller('MainCtrl',function($scope,$http){
-            $scope.title='Go';
+        app.controller('MainCtrl',function($scope){
+            $scope.goSearch = function goSearch(){
+                var keyword = '首页';
+                if($scope.selected == null){
+                    keyword = $('#search_input_value').val();
+                }else {
+                    keyword = $scope.selected.title;
+                }
+                var searchForm = document.getElementById('search_form');
+                searchForm.action = '/mobile/search/' +keyword + '/';
+                searchForm.submit();
+            }
         });
     </script>
 </head>
@@ -76,9 +78,11 @@
          </div>
     </nav>
     <div class="container main-content"  ng-controller="MainCtrl">
-        <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post">
+        <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post" >
             <div class="input-group">
-                <input type="text" id="auto-suggest" name="q" class="form-control text" placeholder="请输入搜索关键词">
+                <angucomplete id="search_input" placeholder="请输入搜索关键词" pause="400" selectedObject="selected"
+                              url="/mobile/ajax_search?s=" titlefield="name" inputclass="form-control" minlength="1">
+                </angucomplete>
                 <span class="input-group-btn">
                     <a class="btn btn-default" id="search_btn" onclick="goSearch()">
                         Go
