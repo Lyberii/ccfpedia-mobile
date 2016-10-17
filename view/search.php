@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <title>CCFpedia</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
     <link href="/mobile/css/main.css" rel="stylesheet">
-    <link href="/mobile/css/angucomplete.css">
-    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//cdn.bootcss.com/angular.js/1.2.0/angular.min.js"></script>
-    <script src="//cdn.bootcss.com/angular.js/1.2.0/angular-touch.min.js"></script>
-    <script src="/mobile/js/angucomplete.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.js"></script>
     <style type="text/css">
         .navbar-brand {
             width: 80px;
@@ -52,6 +52,12 @@
                     $.getJSON('/mobile/ajax_search', {
                         's':request.term
                     }, response);
+                },
+                select: function (event, ui) {
+                    var searchText = ui.item.label;
+                    var searchForm = document.getElementById('search_form');
+                    searchForm.action = '/mobile/search/' +searchText + '/';
+                    searchForm.submit();
                 }
             });
         });
