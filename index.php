@@ -10,6 +10,9 @@ $path = $request->path();
 
 if ($path[1] == 'search') {
 	include 'search.php';
-} else {
+}
+elseif($path[1] == 'autocomplete'){
+	include 'autocomplete.php';
+}else {
 	include 'query.php';
 }

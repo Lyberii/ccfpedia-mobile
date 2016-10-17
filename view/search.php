@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="app">
 
 <head lang="en">
     <meta charset="utf-8">
@@ -9,8 +9,12 @@
     <title>CCFpedia</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="/mobile/css/main.css" rel="stylesheet">
+    <link href="/mobile/css/angucomplete.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.2.0/angular.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.2.0/angular-touch.min.js"></script>
+    <script src="/mobile/js/angucomplete.js"></script>
     <style type="text/css">
         .navbar-brand {
             width: 80px;
@@ -43,6 +47,12 @@
             searchForm.submit();
         }
     </script>
+    <script type="text/javascript">
+        var app = angular.module('app', ["ngTouch", "angucomplete"]);
+        app.controller('MainCtrl',function($scope,$http){
+            $scope.title='Go';
+        });
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -65,10 +75,10 @@
             </div>
          </div>
     </nav>
-    <div class="container main-content">
+    <div class="container main-content"  ng-controller="MainCtrl">
         <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post">
             <div class="input-group">
-                <input type="text" id="search_value" class="form-control" placeholder="请输入搜索关键词">
+                <input type="text" id="auto-suggest" name="q" class="form-control text" placeholder="请输入搜索关键词">
                 <span class="input-group-btn">
                     <a class="btn btn-default" id="search_btn" onclick="goSearch()">
                         Go
@@ -96,7 +106,6 @@
                         <? } ?>
                     </ul>
                 </div>
-
             </div>
             <div class="panel panel-default panel-content">
                 <div class="panel-heading">
@@ -131,7 +140,4 @@
         <? } ?>
     </div>
 </body>
-<script>
-
-</script>
 </html>

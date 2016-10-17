@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="app">
 
 <head lang="en">
     <meta charset="utf-8">
@@ -9,9 +9,13 @@
     <title>CCFpedia</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="/mobile/css/main.css" rel="stylesheet">
+    <link href="/mobile/css/angucomplete.css">
     <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.2.0/angular.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.2.0/angular-touch.min.js"></script>
+    <script src="/mobile/js/angucomplete.js"></script>
     <script type="text/javascript">
         function goSearch(){
             var searchText = document.getElementById('search_value').value;
@@ -37,6 +41,11 @@
             }
         })
     </script>
+    <script type="text/javascript">
+        var app = angular.module('app', ["ngTouch", "angucomplete"]);
+        app.controller('MainCtrl',function($scope,$http){
+        });
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -57,12 +66,14 @@
                     </ul>
                 </div>
             </div>
-         </div>    
+         </div>
     </nav>
-    <div class="container main-content">
+    <div class="container main-content" ng-controller="MainCtrl">
         <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post">
             <div class="input-group">
-                <input type="text" id="search_value" class="form-control" placeholder="请输入搜索关键词">
+                <input type="text" id="search_value" class="form-control" placeholder="请输入搜索关键词" ng-show="false">
+                <angucomplete ng-show="true" id="search_input" name="q" placeholder="请输入搜索关键词" pause="400" selectedobject="keyword"
+                              url="/mobile/autocomplete?s=" titlefield="name" inputclass="form-control"></angucomplete>
                 <span class="input-group-btn">
                     <a class="btn btn-default" id="search_btn" onclick="goSearch()">
                         Go
@@ -79,9 +90,19 @@
                 <?=$htmlContent?>
             </div>
             <div class="panel-footer">
-                总词条数:<?=$statistics['articles']?><br/>
-                总编辑数:<?=$statistics['edits']?><br/>
-                访问数:<?=$statistics['views']?><br/>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>总词条数:<?=$statistics['articles']?></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p>总编辑数:<?=$statistics['edits']?></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>访问数:<?=$statistics['views']?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
