@@ -79,6 +79,9 @@
                 <?=$htmlContent?>
             </div>
             <div class="panel-footer">
+                总词条数:<?=$statistics['articles']?><br/>
+                总编辑数:<?=$statistics['edits']?><br/>
+                访问数:<?=$statistics['views']?><br/>
             </div>
         </div>
     </div>
