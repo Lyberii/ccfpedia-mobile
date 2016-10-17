@@ -78,13 +78,13 @@
          </div>
     </nav>
     <div class="container main-content"  ng-controller="MainCtrl">
-        <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post" >
+        <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post" autocomplete="off">
             <div class="input-group">
                 <angucomplete id="search_input" placeholder="请输入搜索关键词" pause="400" selectedObject="selected"
                               url="/mobile/ajax_search?s=" titlefield="name" inputclass="form-control" minlength="1">
                 </angucomplete>
                 <span class="input-group-btn">
-                    <a class="btn btn-default" id="search_btn" onclick="goSearch()">
+                    <a class="btn btn-default" id="search_btn" ng-click="goSearch()">
                         Go
                     </a>
                 </span>

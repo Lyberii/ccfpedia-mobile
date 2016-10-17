@@ -77,7 +77,7 @@
     <div class="container main-content" ng-controller="MainCtrl">
         <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post" autocomplete="off">
             <div class="input-group">
-                <angucomplete id="search_input" ng-model="angucomplete" placeholder="请输入搜索关键词" pause="400" selectedObject="selected"
+                <angucomplete id="search_input" placeholder="请输入搜索关键词" pause="400" selectedObject="selected"
                               url="/mobile/ajax_search?s=" titlefield="name" inputclass="form-control" minlength="1">
                 </angucomplete>
                 <span class="input-group-btn">
@@ -98,15 +98,15 @@
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-xs-6">
-                        <p>总词条数:<?=$statistics['articles']?></p>
+                        <h4>总词条数:<?=$statistics['articles']?></h4>
                     </div>
                     <div class="col-xs-6">
-                        <p>总编辑数:<?=$statistics['edits']?></p>
+                        <h4>总编辑数:<?=$statistics['edits']?></h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <p>访问数:<?=$statistics['views']?></p>
+                        <h4>访问数:<?=$statistics['views']?></h4>
                     </div>
                 </div>
             </div>
