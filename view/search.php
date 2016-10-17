@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  ng-app="app">
+<html>
 
 <head lang="en">
     <meta charset="utf-8">
@@ -40,19 +40,20 @@
         }
     </style>
     <script type="text/javascript">
-        var app = angular.module('app', ["ngTouch", "angucomplete"]);
-        app.controller('MainCtrl',function($scope){
-            $scope.goSearch = function goSearch(){
-                var keyword = '首页';
-                if($scope.selected == null){
-                    keyword = $('#search_input_value').val();
-                }else {
-                    keyword = $scope.selected.title;
+        function goSearch(){
+            var searchText = document.getElementById('search_value').value;
+            var searchForm = document.getElementById('search_form');
+            searchForm.action = '/mobile/search/' +searchText + '/';
+            searchForm.submit();
+        }
+        $(function(){
+            $( "#search_value" ).autocomplete({
+                source: function (request,response) {
+                    $.getJSON('/mobile/ajax_search', {
+                        's':request.term
+                    }, response);
                 }
-                var searchForm = document.getElementById('search_form');
-                searchForm.action = '/mobile/search/' +keyword + '/';
-                searchForm.submit();
-            }
+            });
         });
     </script>
 </head>
@@ -77,14 +78,12 @@
             </div>
          </div>
     </nav>
-    <div class="container main-content"  ng-controller="MainCtrl">
+    <div class="container main-content">
         <form class="inline-form" id="search_form" onsubmit="goSearch()" role="form" method="post" autocomplete="off">
             <div class="input-group">
-                <angucomplete id="search_input" placeholder="请输入搜索关键词" pause="400" selectedObject="selected"
-                              url="/mobile/ajax_search?s=" titlefield="name" inputclass="form-control" minlength="1">
-                </angucomplete>
+                <input class="form-control" id="search_value" type="text" placeholder="请输入关键词">
                 <span class="input-group-btn">
-                    <a class="btn btn-default" id="search_btn" ng-click="goSearch()">
+                    <a class="btn btn-default" id="search_btn" onclick="goSearch()">
                         Go
                     </a>
                 </span>
