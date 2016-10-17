@@ -8,11 +8,13 @@ $response = Response::getInstance();
 if ($request->uri() == '/mobile/' || $request->uri() == '/mobile') $response->redirect('/mobile/首页');
 $path = $request->path();
 
-if ($path[1] == 'search') {
-	include 'search.php';
-}
-elseif($path[1] == 'ajax_search'){
-	include 'ajax_search.php';
-}else {
-	include 'query.php';
+switch ($path[1]) {
+	case 'search':
+		include 'search.php';
+		break;
+	case 'ajax_search':
+		include 'ajax_search.php';
+		break;
+	default:
+		include 'query.php';
 }
