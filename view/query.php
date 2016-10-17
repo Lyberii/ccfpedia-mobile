@@ -100,16 +100,14 @@
             </div>
             <div class="panel-footer">
                 <div class="row">
-                    <div class="col-xs-6">
-                        <h4>总词条数:<?=$statistics['articles']?></h4>
-                    </div>
-                    <div class="col-xs-6">
-                        <h4>总编辑数:<?=$statistics['edits']?></h4>
+                    <div class="col-xs-12">
+                        <h5>CCFpedia总共有<span style="color: cornflowerblue;"><?=$statistics['articles']?>
+                            </span>个词条,已访问<span style="color: cornflowerblue;"><?=$statistics['views']?></span>次</h5>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <h4>访问数:<?=$statistics['views']?></h4>
+                        <h5>词条总编辑数<span style="color: cornflowerblue;"><?=$statistics['edits']?></span></h5>
                     </div>
                 </div>
             </div>

@@ -9,4 +9,4 @@ $result = [];
 if ($searchResult) {
 	foreach ($searchResult as $item) $result[] = $item['title'];
 }
-$response->send(json_encode($result));
+$response->send(json_encode(array_slice($result,0,6)));
