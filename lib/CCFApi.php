@@ -18,10 +18,10 @@ class CCFApi {
 		$params['utf8'] = '';
 		$params['format'] = 'json';
 		$textSearchResult = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
-		$srtext = isset($textSearchResult['query']['search']) ? $textSearchResult['query']['search'] : [];
+		$srtitle = isset($textSearchResult['query']['search']) ? $textSearchResult['query']['search'] : [];
 		$params['srwhat'] = 'text';
 		$titleSearchResult = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
-		$srtitle = isset($titleSearchResult['query']['search']) ? $titleSearchResult['query']['search'] : [];
+		$srtext = isset($titleSearchResult['query']['search']) ? $titleSearchResult['query']['search'] : [];
 		return [
 			'title' => $srtitle,
 			'text' => $srtext,
