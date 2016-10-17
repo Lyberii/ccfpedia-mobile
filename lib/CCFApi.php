@@ -42,6 +42,23 @@ class CCFApi {
 		else return false;
 	}
 
+    public static function statistics(){
+        $params = array();
+        $params['action'] = 'query';
+        $params['meta'] = 'siteinfo';
+        $params['siprop'] = 'statistics';
+        $params['format'] = 'json';
+        $StatisticsResult = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
+        $articles = isset($StatisticsResult['query']['statistics']['articles']) ? $StatisticsResult['query']['statistics']['articles'] : [];
+        $edits = isset($StatisticsResult['query']['statistics']['edits']) ? $StatisticsResult['query']['statistics']['edits'] : [];
+        $views = isset($StatisticsResult['query']['statistics']['views']) ? $StatisticsResult['query']['statistics']['views'] : [];
+        return[
+            'articles' => $articles,
+            'edits' => $edits,
+            'views' => $views,
+        ];
+    }
+
 	public static function sizeInterpret($size) {
 		if ($size > 1048576) {
 			$unit = 'MB';
