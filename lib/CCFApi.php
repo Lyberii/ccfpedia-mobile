@@ -49,13 +49,15 @@ class CCFApi {
         $params['siprop'] = 'statistics';
         $params['format'] = 'json';
         $StatisticsResult = json_decode(HttpClient::get(self::API_URL . http_build_query($params)), true);
-        $articles = isset($StatisticsResult['query']['statistics']['articles']) ? $StatisticsResult['query']['statistics']['articles'] : [];
-        $edits = isset($StatisticsResult['query']['statistics']['edits']) ? $StatisticsResult['query']['statistics']['edits'] : [];
-        $views = isset($StatisticsResult['query']['statistics']['views']) ? $StatisticsResult['query']['statistics']['views'] : [];
+        $articles = isset($StatisticsResult['query']['statistics']['articles']) ? $StatisticsResult['query']['statistics']['articles'] : 0;
+        $edits = isset($StatisticsResult['query']['statistics']['edits']) ? $StatisticsResult['query']['statistics']['edits'] : 0;
+        $views = isset($StatisticsResult['query']['statistics']['views']) ? $StatisticsResult['query']['statistics']['views'] : 0;
+	    $pages = isset($StatisticsResult['query']['statistics']['pages']) ? $StatisticsResult['query']['statistics']['pages'] : 0;
         return[
             'articles' => $articles,
             'edits' => $edits,
             'views' => $views,
+	        'pages' => $pages,
         ];
     }
 
