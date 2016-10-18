@@ -102,7 +102,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h5>CCFpedia总共有<span style="color: cornflowerblue;"><?=$statistics['articles']?>
-                            </span>个词条,<span style="color: cornflowerblue;"><?=$statistics['pages']?></span>个页面,已访问<span style="color: cornflowerblue;"><?=$statistics['views']?></span>次</h5>
+                            </span>个词条，<span style="color: cornflowerblue;"><?=$statistics['pages']?></span>个页面，已访问<span style="color: cornflowerblue;"><?=$statistics['views']?></span>次</h5>
                     </div>
                 </div>
                 <div class="row">
